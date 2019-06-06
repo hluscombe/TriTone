@@ -2,7 +2,13 @@ import * as Tone from "tone";
 import React, { Component } from "react";
 
 class Sounds extends Component {
-
+  constructor(props) {
+    super();
+    this.state = {
+      width: window.innerWidth,
+      height: window.innerHeight
+    }
+  }
   componentDidMount() {
     this.sample = new Tone.Sampler({
 	    "C3" : process.env.PUBLIC_URL + "/assets/test.mp3",
@@ -114,13 +120,8 @@ class Sounds extends Component {
   render() {
     return (
       <div
-      tabIndex={0}
-      onKeyDown={this.keyIsPressed}
-      onKeyUp={this.keyIsUp}
-      focus='true'
+    
       >
-      Sound
-
       </div>
     );
   }
