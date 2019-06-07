@@ -61,6 +61,7 @@ class Animations extends Component {
     const planeMaterial = new THREE.MeshLambertMaterial({ color: 'white', side: THREE.DoubleSide})
     this.plane = new THREE.Mesh(planeGeometry, planeMaterial)
 
+    this.objects = [];
 
     //checks if buffer is loaded
     this.sample = new Tone.Sampler({
@@ -135,7 +136,6 @@ class Animations extends Component {
   }
 
   animate = () => {
-
     this.renderScene()
     this.frameId = window.requestAnimationFrame(this.animate)
     TWEEN.update()
@@ -145,32 +145,36 @@ class Animations extends Component {
     this.renderer.render(this.scene, this.camera);
   }
 
-  create = (objName, colour, target, x, y, z) => {
-
-    if (this.scene.getObjectByName(objName)) {
+  create = (objName, colour, target, x, y, z, duration) => {
+    // if (this.scene.getObjectByName(objName)) {
+    if (this.objects.includes(objName)) {
       this.tweenObj.stop()
-      return this.create(objName, colour, target, x, y, z)
+      console.log(this.objects.indexOf(objName));
+      this.objects[this.objects.indexOf(objName)] = null
+      return this.create(objName, colour, target, x, y, z, duration)
     } else {
       const material = new THREE.MeshLambertMaterial({ color: colour})
       const geometry = new THREE.BoxGeometry(1, 1, 1)
       const obj = new THREE.Mesh(geometry, material)
-      console.log(obj.id);
       obj.name = objName
       let position = obj.position.set(x, y, z);
       const objTarget= target || {x:1, y: -1, z: -2};
-      this.tweenObj = new TWEEN.Tween(position).to(objTarget, 600)
-      .easing(TWEEN.Easing.Exponential.Out)
+      this.tweenObj = new TWEEN.Tween(position).to(objTarget, duration)
+      .easing(TWEEN.Easing.Quartic.InOut)
       .onStart(() => {
+        this.scene.remove(obj)
         this.scene.add(obj)
+        this.objects.push(objName)
+        console.log(this.objects);
         this.sample.triggerAttack('C2')
       })
       .onStop(() => {
-        this.scene.remove(this.scene.getObjectByName(objName))
+        this.scene.remove(obj)
         geometry.dispose()
         material.dispose()
       })
       .onComplete(() => {
-        this.scene.remove(this.scene.getObjectByName(objName))
+        this.scene.remove(obj)
         geometry.dispose()
         material.dispose()
       }).start();
@@ -194,18 +198,17 @@ class Animations extends Component {
         this.tweenPlane.stop()
         this.scene.remove(this.plane);
         this.scene.add(this.plane)
-        // this.start()
         this.tweenPlane.start();
         this.sample.triggerAttack('E3');
       },
       'c': () => {
-        this.create('c', 'pink', {x:-6, y: 1, z: -2}, 1, 2, 0)
+        this.create('c', 'pink', {x:-6, y: 1, z: -2}, 1, 2, 0, 800)
       },
       'd': () => {
-        this.create('d', 'blue', {x:4, y: -1, z: -2}, 0, 0, -1)
+        this.create('d', 'blue', {x:4, y: -1, z: -2}, 0, 0, -1, 600)
       },
       'e': () => {
-        this.create('e', 'yellow', {x:2, y: -3, z: 0}, 1, 2, 1)
+        this.create('e', 'yellow', {x:2, y: -3, z: 0}, 1, 2, 1, 400)
       },
       'f': () => {
         // this.scene.remove(this.dec);
