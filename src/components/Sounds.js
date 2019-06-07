@@ -44,6 +44,7 @@ class Sounds extends Component {
         this.sample.triggerAttack('C3');
       },
       'g': () => {
+        this.sample.triggerRelease('C3');
         this.sample.triggerAttack('C3');
       },
       'h': () => {
@@ -120,7 +121,7 @@ class Sounds extends Component {
   render() {
     return (
       <div
-    
+
       >
       </div>
     );

@@ -1,6 +1,6 @@
 import React from "react";
 import Animations from './components/Animations.js'
-import Sounds from './components/Sounds';
+// import Sounds from './components/Sounds';
 
 function App() {
   return (
