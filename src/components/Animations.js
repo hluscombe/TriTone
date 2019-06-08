@@ -72,18 +72,29 @@ class Animations extends Component {
 
     var targetCube = {x: 2, y: 0.05, z: 0 };
     var cube = this.cube
-    this.tween = new TWEEN.Tween(cube.position).to(targetCube, 600)
+    this.tween = new TWEEN.Tween(cube.position)
+      .to(targetCube, 600)
       .easing(TWEEN.Easing.Exponential.Out)
       .onStart(() => {
         this.scene.add(cube)
+        this.tweenRotation.delay(300)
+        this.tweenRotation.start()
         this.sample.triggerAttack('E3')
       })
       .onStop(()=>{
         this.scene.remove(cube)
+        this.tweenRotation.stop()
         cube.position.set(0, 0, 0)})
       .onComplete(() => {
         this.scene.remove(cube)
         cube.position.set(0, 0, 0)
+    });
+    this.tweenRotation = new TWEEN.Tween(cube.rotation).to({x: 1.5}, 300)
+    .easing(TWEEN.Easing.Exponential.Out)
+    .onStop(()=>{
+      cube.rotation.set(0, 0, 0)})
+    .onComplete(() => {
+      cube.rotation.set(0, 0, 0)
     });
 
     var targetSphere = {x:-1, y: 1, z: -2};
@@ -146,13 +157,16 @@ class Animations extends Component {
   }
 
   create = (objName, colour, target, x, y, z, duration) => {
+    // setTimeout({
+    //
+    // }, 300)
     // if (this.scene.getObjectByName(objName)) {
-    if (this.objects.includes(objName)) {
-      this.tweenObj.stop()
-      console.log(this.objects.indexOf(objName));
-      this.objects[this.objects.indexOf(objName)] = null
-      return this.create(objName, colour, target, x, y, z, duration)
-    } else {
+    //   this.scene.remove(objName)
+    // // if (this.objects.includes(objName)) {
+    //   this.tweenObj.stop()
+    //   // this.objects[this.objects.indexOf(objName)] = null
+    //   return this.create(objName, colour, target, x, y, z, duration)
+    // } else {
       const material = new THREE.MeshLambertMaterial({ color: colour})
       const geometry = new THREE.BoxGeometry(1, 1, 1)
       const obj = new THREE.Mesh(geometry, material)
@@ -165,7 +179,6 @@ class Animations extends Component {
         this.scene.remove(obj)
         this.scene.add(obj)
         this.objects.push(objName)
-        console.log(this.objects);
         this.sample.triggerAttack('C2')
       })
       .onStop(() => {
@@ -178,7 +191,7 @@ class Animations extends Component {
         geometry.dispose()
         material.dispose()
       }).start();
-    }
+    // }
   }
 
   keyIsPressed = (e) => {
@@ -227,14 +240,10 @@ class Animations extends Component {
 
       },
       'h': () => {
-        this.scene.remove(this.cube);
-        this.scene.add(this.cube)
-        this.start()
+        this.create('h', 'orange', {x:2, y: -5, z: 2}, 0.4, 0.3, 2, 400)
       },
       'i': () => {
-        this.scene.remove(this.cube);
-        this.scene.add(this.cube)
-        this.start()
+        this.create('i', 'aliceblue', {x:-2, y: -4, z: 7}, 0.8, 0.2, 0.1, 400)
       },
       'j': () => {
         this.scene.remove(this.cube);
