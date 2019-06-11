@@ -55,14 +55,14 @@ class Animations extends Component {
 
     // object 2
     const sphereGeometry = new THREE.SphereBufferGeometry(2, 20, 20)
-    const sphereMaterial = new THREE.MeshLambertMaterial({ color: 'blue', wireframe: true })
+    const sphereMaterial = new THREE.MeshLambertMaterial({ color: 'blue', wireframe: false })
     this.sphere1 = new THREE.Mesh(sphereGeometry, sphereMaterial)
     this.sphere1.position.set(6,0,0)
     // this.scene.add(this.sphere1)
 
     // object 3
     const sphere2Geometry = new THREE.SphereBufferGeometry(1, 20, 20)
-    const sphere2Material = new THREE.MeshLambertMaterial({ color: 'green', wireframe: true })
+    const sphere2Material = new THREE.MeshLambertMaterial({ color: 'green', wireframe: false })
     this.sphere2 = new THREE.Mesh(sphere2Geometry, sphere2Material)
     this.sphere2.position.set(-6,2,2)
     // this.scene.add(this.sphere2)
@@ -74,7 +74,7 @@ class Animations extends Component {
 
     // object 5
     const coneGeometry = new THREE.ConeBufferGeometry( 1, 3, 30 );
-    const coneMaterial = new THREE.MeshLambertMaterial( {color: 'black', wireframe: false} );
+    const coneMaterial = new THREE.MeshLambertMaterial( {color: 'skyblue', wireframe: false} );
     this.cone = new THREE.Mesh( coneGeometry, coneMaterial );
     this.cone.rotation.x = -1.5
     this.cone.position.set(0,2,-4)
@@ -140,43 +140,47 @@ class Animations extends Component {
     const cube2Geometry = new THREE.BoxBufferGeometry(2, 2, 2)
     const cube2Material = new THREE.MeshLambertMaterial({ color: 'blue', wireframe: false })
     this.cube2 = new THREE.Mesh(cube2Geometry, cube2Material)
-    // this.cube2.position.set(-4,-4,0)
-    this.cube2.position.set(Math.random()*10, Math.random()*10, Math.random()*10)
+    let randomIntx = Math.random() < 0.5 ? -4 : 4;
+    let randomInty = Math.random() < 0.5 ? -4 : 4;
+    this.cube2.position.set(randomIntx, randomInty, 0)
     // this.scene.add(this.cube2)
 
     // object 15
-    const cube3Geometry = new THREE.BoxBufferGeometry(1, 2, 2)
-    const cube3Material = new THREE.MeshLambertMaterial({ color: 'pink', wireframe: true })
+    const cube3Geometry = new THREE.BoxBufferGeometry(1, 2, 4)
+    const cube3Material = new THREE.MeshLambertMaterial({ color: 'pink', wireframe: false })
     this.cube3 = new THREE.Mesh(cube3Geometry, cube3Material)
+    this.cube3.position.set(randomIntx, randomInty, 0)
     // this.scene.add(this.cube3)
 
     // object 16
-    const cube4Geometry = new THREE.BoxBufferGeometry(1.5, 2, 2)
-    const cube4Material = new THREE.MeshLambertMaterial({ color: 'yellow', wireframe: true })
+    const cube4Geometry = new THREE.BoxBufferGeometry(2, 2, 2)
+    const cube4Material = new THREE.MeshLambertMaterial({ color: 'yellow', wireframe: false })
     this.cube4 = new THREE.Mesh(cube4Geometry, cube4Material)
+    this.cube4.scale.set(1,1,1)
     // this.scene.add(this.cube4)
 
     // object 17
     const tetra2Geometry = new THREE.TetrahedronBufferGeometry()
-    const tetra2Material = new THREE.MeshBasicMaterial({color: 'blue', wireframe: true})
+    const tetra2Material = new THREE.MeshLambertMaterial({color: 'blue', wireframe: false})
     this.tetra2 = new THREE.Mesh(tetra2Geometry, tetra2Material);
+    this.tetra2.position.set(2, 2, 0)
     // this.scene.add( this.tetra2 )
 
     // object 18
     const triGeometry = new THREE.TorusBufferGeometry( 2, 0.2, 10, 3 );
-    const triMaterial = new THREE.MeshBasicMaterial( { color: 'brown', wireframe: true } );
+    const triMaterial = new THREE.MeshBasicMaterial( { color: 'brown', wireframe: false } );
     this.tri = new THREE.Mesh( triGeometry, triMaterial );
     // this.scene.add( this.tri );
 
     // object 19
-    const hexGeometry = new THREE.TorusBufferGeometry( 1, .5, 3 );
-    const hexMaterial = new THREE.MeshNormalMaterial({ color: 'black', wireframe: true });
+    const hexGeometry = new THREE.TorusBufferGeometry( 1, .2, 3 );
+    const hexMaterial = new THREE.MeshNormalMaterial();
     this.hex = new THREE.Mesh( hexGeometry, hexMaterial );
     // this.scene.add(this.hex)
 
     // object 20
-    const growGeometry = new THREE.CircleBufferGeometry( 1, 32, 0, 0.2 ); // animate this last var to 6.3
-    const growMaterial = new THREE.MeshBasicMaterial( { color: 'blue', wireframe: true } );
+    let growGeometry = new THREE.CircleBufferGeometry( 2, 32, 0 ); // animate this last var to 6.3
+    const growMaterial = new THREE.MeshLambertMaterial( { color: 'blue', wireframe: false} );
     this.grow = new THREE.Mesh( growGeometry, growMaterial );
     // this.scene.add( this.grow );
 
@@ -184,11 +188,12 @@ class Animations extends Component {
     const icoG = new THREE.IcosahedronBufferGeometry(1,0);
     const icoM = new THREE.MeshLambertMaterial({color: 'orange', wireframe: true});
     this.ico2 = new THREE.Mesh( icoG, icoM );
+    this.icosahedron.position.set(0,-5,2)
     // this.scene.add( this.ico2 )
 
     // object 22
     const toyboxG = new THREE.SphereBufferGeometry(2, 20, 3)
-    const toyboxM = new THREE.MeshLambertMaterial({ color: 'black', wireframe: true })
+    const toyboxM = new THREE.MeshLambertMaterial({ color: 'silver', wireframe: true })
     this.toybox = new THREE.Mesh(toyboxG, toyboxM)
     // this.scene.add( this.toybox )
 
@@ -202,15 +207,17 @@ class Animations extends Component {
     const cyl2G = new THREE.CylinderBufferGeometry( 1, 8, 2, 20 );
     const cyl2M = new THREE.MeshBasicMaterial( {color: 'blue', wireframe: true} );
     this.cylinder2 = new THREE.Mesh( cyl2G, cyl2M );
+    this.cylinder2.position.set(0,0,-10)
     // this.scene.add( this.cylinder2 );
 
     // object 25
     const octG = new THREE.TorusBufferGeometry( 2, .2, 3, 8 );
     const octM = new THREE.MeshNormalMaterial({ color: 'black', wireframe: true });
     this.oct = new THREE.Mesh( octG, octM );
+    this.oct.position.set(0,0,10)
     // this.scene.add(this.oct)
 
-    // object 26
+    // object 26 for letter K
     // var loader = new THREE.FontLoader();
     //
     // loader.load( 'fonts/helvetiker_regular.typeface.json', function ( font ) {
@@ -342,7 +349,7 @@ class Animations extends Component {
     })
 
     this.coneAnim = new TWEEN.Tween(this.cone.position)
-    .to({x:0,y:0,z: 6}, 2000)
+    .to({x:0,y:0,z: 6}, 2500)
     .easing(TWEEN.Easing.Exponential.Out)
     .onStart(()=>{
       this.scene.add(this.cone)
@@ -361,15 +368,15 @@ class Animations extends Component {
       this.scene.remove(this.cone)
       this.coneRotation.stop()
       this.cone.position.set(0,2,-4)
+      this.cone.rotation.set(-1.5,0,0)
     })
     this.coneRotation = new TWEEN.Tween(this.cone.rotation)
-    .to({x: 0}, 1000)
+    .to({x: -3}, 1000)
     .easing(TWEEN.Easing.Quartic.In)
     .onStop(()=>{
       this.cone.rotation.set(-1.5,0,0)
     })
     .onComplete(()=>{
-      this.cone.rotation.set(-1.5,0,0)
     })
 
     this.cylAnim = new TWEEN.Tween(this.cylinder.position)
@@ -434,7 +441,7 @@ class Animations extends Component {
     })
 
     this.icosaAnim = new TWEEN.Tween(this.icosahedron.position)
-    .to({y: -1, z: 3}, 1100)
+    .to({y: 0, z: 3}, 1100)
     .easing(TWEEN.Easing.Quartic.InOut)
     .onStart(()=>{
       this.scene.add(this.icosahedron)
@@ -547,13 +554,231 @@ class Animations extends Component {
     .onStop(()=>{
       this.scene.remove(this.cube2)
       this.cube2.scale.set(1,1,1)
-      this.cube2.position.set(Math.random()*1, Math.random()*1, Math.random()*1)
+      let randomIntx = Math.random() < 0.5 ? -4 : 4;
+      let randomInty = Math.random() < 0.5 ? -4 : 4;
+      this.cube2.position.set(randomIntx, randomInty, 0)
     })
     .onComplete(()=>{
       this.scene.remove(this.cube2)
       this.cube2.scale.set(1,1,1)
-      this.cube2.position.set(Math.random()*1, Math.random()*1, Math.random()*1)
+      let randomIntx = Math.random() < 0.5 ? -4 : 4;
+      let randomInty = Math.random() < 0.5 ? -4 : 4;
+      this.cube2.position.set(randomIntx, randomInty, 0)
     })
+
+    this.cube3Anim = new TWEEN.Tween(this.cube3.scale)
+    .to({x:1,y:1,z:1}, 200)
+    .easing(TWEEN.Easing.Linear.None)
+    .onStart(()=>{
+      let randomIntx = Math.random() < 0.5 ? -2.5 : 2.5;
+      let randomInty = Math.random() < 0.5 ? -2.5 : 2.5;
+      this.cube3.position.set(randomIntx, randomInty, 0)
+      this.start()
+      this.scene.add(this.cube3)
+    })
+    .onStop(()=>{
+      this.scene.remove(this.cube3)
+      this.cube3.scale.set(0.5,0.5,0.5)
+      let randomIntx = Math.random() < 0.5 ? -2.5 : 2.5;
+      let randomInty = Math.random() < 0.5 ? -2.5 : 2.5;
+      this.cube3.position.set(randomIntx, randomInty, 0)
+    })
+    .onComplete(()=>{
+      this.scene.remove(this.cube3)
+      this.cube3.scale.set(0.5,0.5,0.5)
+      let randomIntx = Math.random() < 0.5 ? -2.5 : 2.5;
+      let randomInty = Math.random() < 0.5 ? -2.5 : 2.5;
+      this.cube3.position.set(randomIntx, randomInty, 0)
+    })
+
+    this.cube4Anim = new TWEEN.Tween(this.cube4.scale)
+    .to({x:2,y:2,z:2}, 200)
+    .easing(TWEEN.Easing.Quadratic.Out)
+    .onStart(()=>{
+      this.scene.add(this.cube4)
+      let randomIntx = Math.random() < 0.5 ? 6 : -6;
+      let randomInty = Math.random() < 0.5 ? 6 : -6;
+      this.cube4.position.set(randomIntx, randomInty, 0)
+    })
+    .onStop(()=>{
+      this.scene.remove(this.cube4)
+      let randomIntx = Math.random() < 0.5 ? 6 : -6;
+      let randomInty = Math.random() < 0.5 ? 6 : -6;
+      this.cube4.position.set(randomIntx, randomInty, 0)
+      this.cube4.scale.set(1,1,1)
+    })
+    .onComplete(()=>{
+      this.scene.remove(this.cube4)
+      let randomIntx = Math.random() < 0.5 ? 6 : -6;
+      let randomInty = Math.random() < 0.5 ? 6 : -6;
+      this.cube4.position.set(randomIntx, randomInty, 0)
+      this.cube4.scale.set(1,1,1)
+    })
+
+    this.tetra2Anim = new TWEEN.Tween(this.tetra2.position)
+    .to({x: 2, y:0, z:0}, 200)
+    .easing(TWEEN.Easing.Quadratic.Out)
+    .onStart(()=>{
+      this.tetra2.position.set(2, 2, 0)
+      this.scene.add(this.tetra2)
+    })
+    .onStop(()=>{
+      this.scene.remove(this.tetra2)
+      this.tetra2.position.set(2, 2, 0)
+      this.tetra2Anim2.stop()
+    })
+    .onComplete(()=>{
+      this.tetra2Anim2.start()
+    })
+    this.tetra2Anim2 = new TWEEN.Tween(this.tetra2.position)
+    .to({x: -6, y: 3, z: -5}, 800)
+    .easing(TWEEN.Easing.Quadratic.Out)
+    .onStop(()=>{
+      this.tetra2.position.set(2, 2, 0)
+      this.scene.remove(this.tetra2)
+    })
+    .onComplete(()=>{
+      this.scene.remove(this.tetra2)
+      this.tetra2.position.set(2, 2, 0)
+    })
+
+    this.triAnim = new TWEEN.Tween(this.tri.position)
+    .to({z:10}, 2200)
+    .easing(TWEEN.Easing.Quadratic.InOut)
+    .onStart(()=>{
+      this.scene.add(this.tri)
+    })
+    .onUpdate(()=>{
+      this.tri.rotation.z += 0.01
+    })
+    .onStop(()=>{
+      this.scene.remove(this.tri)
+      this.tri.position.set(0,0,0)
+    })
+    .onComplete(()=>{
+      this.scene.remove(this.tri)
+      this.tri.position.set(0,0,0)
+    })
+
+    this.hexAnim = new TWEEN.Tween(this.hex.position)
+    .to({z:10}, 2200)
+    .easing(TWEEN.Easing.Quartic.InOut)
+    .onStart(()=>{
+      this.scene.add(this.hex)
+    })
+    .onStop(()=>{
+      this.scene.remove(this.hex)
+      this.hex.position.set(0,0,0)
+    })
+    .onComplete(()=>{
+      this.scene.remove(this.hex)
+      this.hex.position.set(0,0,0)
+    })
+
+    this.growAnim = new TWEEN.Tween(this.grow.rotation)
+    .to({y:6}, 2500)
+    .easing(TWEEN.Easing.Quadratic.InOut)
+    .onStart(()=>{
+      this.scene.add(this.grow)
+    })
+    .onStop(()=>{
+      this.scene.remove(this.grow)
+      this.grow.rotation.set(0,0,0)
+    })
+    .onComplete(()=>{
+      this.scene.remove(this.grow)
+      this.grow.rotation.set(0,0,0)
+    })
+
+    this.ico2Anim = new TWEEN.Tween(this.ico2.position)
+    .to({y: 0, z: 3}, 1100)
+    .easing(TWEEN.Easing.Quartic.InOut)
+    .onStart(()=>{
+      this.scene.add(this.ico2)
+    })
+    .onUpdate(()=>{
+      this.ico2.rotation.y += 0.02
+    })
+    .onStop(()=>{
+      this.scene.remove(this.ico2)
+      this.ico2.position.set(0,-5,2)
+    })
+    .onComplete(()=>{
+      this.scene.remove(this.ico2)
+      this.ico2.position.set(0,-5,2)
+    })
+
+    this.toyboxAnim = new TWEEN.Tween(this.toybox.position)
+    .to({y: 0, z: -30}, 4000)
+    .easing(TWEEN.Easing.Quartic.In)
+    .onStart(()=>{
+      this.scene.add(this.toybox)
+    })
+    .onUpdate(()=>{
+      this.toybox.rotation.y += 0.1
+    })
+    .onStop(()=>{
+      this.scene.remove(this.toybox)
+      this.toybox.position.set(0,0,0)
+    })
+    .onComplete(()=>{
+      this.scene.remove(this.toybox)
+      this.toybox.position.set(0,0,0)
+    })
+
+    this.hatAnim = new TWEEN.Tween(this.hat.position)
+    .to({x:-3.5, y: -3.5, z: -1}, 1000)
+    .onStart(()=>{
+      this.scene.add( this.hat )
+    })
+    .onUpdate(()=>{
+      this.hat.rotation.y += 0.05
+    })
+    .onStop(()=>{
+      this.scene.remove( this.hat )
+      this.hat.position.set(0,0,0)
+    })
+    .onComplete(()=>{
+      this.scene.remove( this.hat )
+      this.hat.position.set(0,0,0)
+    })
+
+    this.cylinder2Anim = new TWEEN.Tween(this.cylinder2.position)
+    .to({z:0}, 1000)
+    .onStart(()=>{
+      this.scene.add( this.cylinder2 )
+    })
+    .onUpdate(()=>{
+      this.cylinder2.rotation.y += 0.02
+    })
+    .onStop(()=>{
+      this.scene.remove( this.cylinder2 )
+      this.cylinder2.position.set(0,0,-10)
+    })
+    .onComplete(()=>{
+      this.scene.remove( this.cylinder2 )
+      this.cylinder2.position.set(0,0,-10)
+    })
+
+    this.octAnim = new TWEEN.Tween(this.oct.position)
+    .to({z: -10}, 1000)
+    .onStart(()=>{
+      this.scene.add( this.oct )
+    })
+    .onUpdate(()=>{
+      this.oct.rotation.z += 0.05
+    })
+    .onStop(()=>{
+      this.scene.remove( this.oct )
+      this.oct.position.set(0,0,10)
+    })
+    .onComplete(()=>{
+      this.scene.remove( this.oct )
+      this.oct.position.set(0,0,10)
+    })
+
+
+
 
 
 
@@ -569,12 +794,6 @@ class Animations extends Component {
       this.camera.updateProjectionMatrix();
     }
   }
-
-  // componentWillUnmount() {
-  //   this.stop()
-  //   window.removeEventListener('resize', this.resize)
-  //   this.mount.removeChild(this.renderer.domElement)
-  // }
 
   start = () => {
     if (!this.frameId) {
@@ -592,34 +811,6 @@ class Animations extends Component {
 
   renderScene = () => {
     this.renderer.render(this.scene, this.camera);
-  }
-
-  create = (objName, colour, target, x, y, z, duration) => {
-
-      const material = new THREE.MeshLambertMaterial({ color: colour})
-      const geometry = new THREE.BoxBufferGeometry(1, 1, 1)
-      const obj = new THREE.Mesh(geometry, material)
-
-      let position = obj.position.set(x, y, z);
-      const objTarget= target || {x:1, y: -1, z: -2};
-      this.tweenObj = new TWEEN.Tween(position).to(objTarget, duration)
-      .easing(TWEEN.Easing.Quartic.InOut)
-      .onStart(() => {
-        this.scene.remove(obj)
-        this.scene.add(obj)
-
-      })
-      .onStop(() => {
-        this.scene.remove(obj)
-        geometry.dispose()
-        material.dispose()
-      })
-      .onComplete(() => {
-        this.scene.remove(obj)
-        geometry.dispose()
-        material.dispose()
-      }).start();
-
   }
 
   keyIsPressed = (e) => {
@@ -675,7 +866,6 @@ class Animations extends Component {
         this.tweenSphere.stop();
         this.tweenSphere.start();
         this.sample.triggerAttack('A3');
-
       },
       'h': () => {
         this.sample.triggerRelease('B3')
@@ -723,38 +913,35 @@ class Animations extends Component {
       },
       'n': () => {
         this.sample.triggerRelease('A4')
-        this.scene.remove(this.cube);
-        this.scene.add(this.cube)
-        this.start()
+        this.cube3Anim.stop()
+        this.cube3Anim.start()
         this.sample.triggerAttack('A4')
       },
       'o': () => {
         this.sample.triggerRelease('B4')
-        this.scene.remove(this.cube);
-        this.scene.add(this.cube)
-        this.start()
+        this.cube4Anim.stop()
+        this.cube4Anim.start()
         this.sample.triggerAttack('B4')
 
       },
       'p': () => {
         this.sample.triggerRelease('C5')
-        this.scene.remove(this.cube);
-        this.scene.add(this.cube)
-        this.start()
+        this.tetra2Anim.stop()
+        this.tetra2Anim.start()
         this.sample.triggerAttack('C5')
 
       },
       'q': () => {
         this.sample.triggerRelease('D5')
-        this.scene.remove(this.cube);
-        this.scene.add(this.cube)
-        this.start()
+        this.triAnim.stop()
+        this.triAnim.start()
         this.sample.triggerAttack('D5')
 
       },
       'r': () => {
         this.sample.triggerRelease('E5')
-
+        this.hexAnim.stop()
+        this.hexAnim.start()
         this.sample.triggerAttack('E5')
       },
       's': () => {
@@ -765,17 +952,20 @@ class Animations extends Component {
       },
       't': () => {
         this.sample.triggerRelease('G5')
-
+        this.toyboxAnim.stop()
+        this.toyboxAnim.start()
         this.sample.triggerAttack('G5')
       },
       'u': () => {
         this.sample.triggerRelease('A5')
-
+        this.growAnim.stop()
+        this.growAnim.start()
         this.sample.triggerAttack('A5')
       },
       'v': () => {
         this.sample.triggerRelease('B5')
-
+        this.hatAnim.stop()
+        this.hatAnim.start()
         this.sample.triggerAttack('B5')
       },
       'w': () => {
@@ -786,14 +976,20 @@ class Animations extends Component {
       },
       'x': () => {
         this.sample.triggerRelease('D6');
+        this.octAnim.stop()
+        this.octAnim.start()
         this.sample.triggerAttack('D6');
       },
       'y': () => {
         this.sample.triggerRelease('E6');
+        this.ico2Anim.stop()
+        this.ico2Anim.start()
         this.sample.triggerAttack('E6');
       },
       'z': () => {
         this.sample.triggerRelease('F6');
+        this.cylinder2Anim.stop()
+        this.cylinder2Anim.start()
         this.sample.triggerAttack('F6');
       }
     }
