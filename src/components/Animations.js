@@ -43,26 +43,33 @@ class Animations extends Component {
     this.light.shadow.mapSize.height = 2048;
     this.scene.add(this.light)
 
-    var axesHelper = new THREE.AxesHelper( 5 );
-    this.scene.add( axesHelper );
+    // this.light2 = new THREE.PointLight("#FF0800");
+    // this.light2.castShadow = true;
+    // this.light2.position.set(-10, 8, 5);
+    // this.light2.shadow.mapSize.width = 2048;
+    // this.light2.shadow.mapSize.height = 2048;
+    // this.scene.add(this.light2)
+
+    // var axesHelper = new THREE.AxesHelper( 5 );
+    // this.scene.add( axesHelper );
 
     // object 1
     const cubeGeometry = new THREE.BoxBufferGeometry(2, 2, 2)
-    const cubeMaterial = new THREE.MeshLambertMaterial({ color: 'red', wireframe: false })
+    const cubeMaterial = new THREE.MeshLambertMaterial({ color: '#FF0800', wireframe: false })
     this.cube = new THREE.Mesh(cubeGeometry, cubeMaterial)
     this.cube.position.set(-2,2,-1)
     // this.scene.add(this.cube)
 
     // object 2
-    const sphereGeometry = new THREE.SphereBufferGeometry(2, 20, 20)
-    const sphereMaterial = new THREE.MeshLambertMaterial({ color: 'blue', wireframe: false })
+    const sphereGeometry = new THREE.PlaneBufferGeometry(2, 3)
+    const sphereMaterial = new THREE.MeshLambertMaterial({ color: '#FF0800', side: THREE.DoubleSide})
     this.sphere1 = new THREE.Mesh(sphereGeometry, sphereMaterial)
-    this.sphere1.position.set(6,0,0)
+    this.sphere1.position.set(6,2,2)
     // this.scene.add(this.sphere1)
 
     // object 3
-    const sphere2Geometry = new THREE.SphereBufferGeometry(1, 20, 20)
-    const sphere2Material = new THREE.MeshLambertMaterial({ color: 'green', wireframe: false })
+    const sphere2Geometry = new THREE.PlaneBufferGeometry(2, 3)
+    const sphere2Material = new THREE.MeshLambertMaterial({ color: '#147ACC', side: THREE.DoubleSide})
     this.sphere2 = new THREE.Mesh(sphere2Geometry, sphere2Material)
     this.sphere2.position.set(-6,2,2)
     // this.scene.add(this.sphere2)
@@ -74,7 +81,7 @@ class Animations extends Component {
 
     // object 5
     const coneGeometry = new THREE.ConeBufferGeometry( 1, 3, 30 );
-    const coneMaterial = new THREE.MeshLambertMaterial( {color: 'skyblue', wireframe: false} );
+    const coneMaterial = new THREE.MeshLambertMaterial( {color: '#147ACC', wireframe: false} );
     this.cone = new THREE.Mesh( coneGeometry, coneMaterial );
     this.cone.rotation.x = -1.5
     this.cone.position.set(0,2,-4)
@@ -82,20 +89,20 @@ class Animations extends Component {
 
     // object 6
     const cylGeometry = new THREE.CylinderBufferGeometry( 1, 1, 3, 20 );
-    const cylMaterial = new THREE.MeshLambertMaterial( {color: 'pink', wireframe: false} );
+    const cylMaterial = new THREE.MeshLambertMaterial( {color: 'white', wireframe: false} );
     this.cylinder = new THREE.Mesh( cylGeometry, cylMaterial );
     this.cylinder.position.set(-20,3,-2)
     // this.scene.add( this.cylinder );
 
     // object 7
     const circGeometry = new THREE.CircleBufferGeometry( 1.5, 32 );
-    const circMaterial = new THREE.MeshBasicMaterial( { color: 'yellow', wireframe: false } );
+    const circMaterial = new THREE.MeshBasicMaterial( { color: '#F7FF19', wireframe: false } );
     this.circle = new THREE.Mesh( circGeometry, circMaterial );
     // this.scene.add( this.circle );
 
     // object 8
     const decGeometry = new THREE.DodecahedronBufferGeometry(1,0);
-    const decMaterial = new THREE.MeshLambertMaterial({color: 'blue', wireframe: false})
+    const decMaterial = new THREE.MeshLambertMaterial({color: '#0967B3', wireframe: false})
     this.dodecahedron = new THREE.Mesh( decGeometry, decMaterial );
     // this.dodecahedron.position.set(Math.random() , Math.random())
     // this.scene.add( this.dodecahedron );
@@ -111,7 +118,7 @@ class Animations extends Component {
     const octGeometry = new THREE.OctahedronBufferGeometry(2, 0);
     const octMaterial = new THREE.MeshLambertMaterial({color: 'green', wireframe: false});
     this.octahedron = new THREE.Mesh(octGeometry, octMaterial);
-    this.octahedron.position.set(-2,2,0)
+    this.octahedron.position.set(-4,2,0)
     // this.scene.add( this.octahedron )
 
     //object 11
@@ -125,7 +132,7 @@ class Animations extends Component {
     const tetraGeometry = new THREE.TetrahedronBufferGeometry()
     const tetraMaterial = new THREE.MeshLambertMaterial({color: 'green', wireframe: false})
     this.tetra = new THREE.Mesh(tetraGeometry, tetraMaterial);
-    this.tetra.position.set(2,3,-1)
+    this.tetra.position.set(5,-3,-1)
     // this.scene.add( this.tetra )
 
     // object 13
@@ -168,7 +175,7 @@ class Animations extends Component {
 
     // object 18
     const triGeometry = new THREE.TorusBufferGeometry( 2, 0.2, 10, 3 );
-    const triMaterial = new THREE.MeshBasicMaterial( { color: 'brown', wireframe: false } );
+    const triMaterial = new THREE.MeshBasicMaterial( { color: '#B31712', wireframe: false } );
     this.tri = new THREE.Mesh( triGeometry, triMaterial );
     // this.scene.add( this.tri );
 
@@ -188,7 +195,7 @@ class Animations extends Component {
     const icoG = new THREE.IcosahedronBufferGeometry(1,0);
     const icoM = new THREE.MeshLambertMaterial({color: 'orange', wireframe: true});
     this.ico2 = new THREE.Mesh( icoG, icoM );
-    this.icosahedron.position.set(0,-5,2)
+    this.ico2.position.set(0,-5,2)
     // this.scene.add( this.ico2 )
 
     // object 22
@@ -205,7 +212,7 @@ class Animations extends Component {
 
     // object 24
     const cyl2G = new THREE.CylinderBufferGeometry( 1, 8, 2, 20 );
-    const cyl2M = new THREE.MeshBasicMaterial( {color: 'blue', wireframe: true} );
+    const cyl2M = new THREE.MeshLambertMaterial( {color: 'blue', wireframe: true} );
     this.cylinder2 = new THREE.Mesh( cyl2G, cyl2M );
     this.cylinder2.position.set(0,0,-10)
     // this.scene.add( this.cylinder2 );
@@ -218,23 +225,16 @@ class Animations extends Component {
     // this.scene.add(this.oct)
 
     // object 26 for letter K
-    // var loader = new THREE.FontLoader();
-    //
-    // loader.load( 'fonts/helvetiker_regular.typeface.json', function ( font ) {
-    //
-    // 	var bigtextgeometry = new THREE.TextBufferGeometry( 'Hello SEI31 !!', {
-    // 		font: font,
-    // 		size: 80,
-    // 		height: 5,
-    // 		curveSegments: 12,
-    // 		bevelEnabled: true,
-    // 		bevelThickness: 10,
-    // 		bevelSize: 8,
-    // 		bevelOffset: 0,
-    // 		bevelSegments: 5
-    // 	} );
-    // } );
+    const tetra3Geometry = new THREE.TetrahedronBufferGeometry()
+    const tetra3Material = new THREE.MeshBasicMaterial({color: 'white', wireframe: false})
+    this.tetra3 = new THREE.Mesh(tetra3Geometry, tetra3Material);
+    this.tetra3.scale.set(5,5,5)
 
+    // let tetrax = Math.random() < 0.5 ? -Math.random()*10 : Math.random()*10;
+    // let tetray = Math.random() < 0.5 ? -Math.random()*10 : Math.random()*10;
+    // let tetraz = Math.random() < 0.5 ? -Math.random()*10 : Math.random()*10;
+    // this.tetra3.position.set(tetrax, tetray, tetraz)
+    // // this.scene.add( this.tetra3 )
 
     this.sample = new Tone.Sampler({
 	    "C3" : process.env.PUBLIC_URL + "/assets/TT01.mp3",
@@ -266,7 +266,7 @@ class Animations extends Component {
     }).toMaster();
 
     var cube = this.cube
-    var targetCube = {x: 2, y: 0.05, z: 3 };
+    var targetCube = {x: 0, y: 0, z: 3 };
     this.cubeAnim = new TWEEN.Tween(cube.position)
       .to(targetCube, 2000)
       .easing(TWEEN.Easing.Exponential.Out)
@@ -285,7 +285,7 @@ class Animations extends Component {
         cube.position.set(-2,2,-1)
     });
     this.cubeRotation = new TWEEN.Tween(cube.rotation)
-      .to({x: 1.5}, 900)
+      .to({x:0.5*Math.PI}, 900)
       .easing(TWEEN.Easing.Quartic.In)
       .onStop(()=>{
         cube.rotation.set(0, 0, 0)})
@@ -293,43 +293,57 @@ class Animations extends Component {
         cube.rotation.set(0, 0, 0)
     });
 
-    var targetSphere = {x:-6, y: 0, z: -4};
-    this.tweenSphere = new TWEEN.Tween(this.sphere1.position).to(targetSphere, 600)
+    var targetSphere = {x:6, y: 2, z: 2};
+    this.tweenSphere = new TWEEN.Tween(this.sphere1.position).to(targetSphere, 700)
     .easing(TWEEN.Easing.Exponential.Out)
     .onStart(() => {
       this.start()
       this.scene.add(this.sphere1)
-    })
-    .onUpdate(()=>{
-      this.sphere1.rotation.y += 0.03
+      this.sphere1rotation.start()
     })
     .onStop(()=>{
       this.scene.remove(this.sphere1)
-      this.sphere1.position.set(6,0,0)
+      this.sphere1.position.set(6,-2,2)
+      this.sphere1rotation.stop()
     })
     .onComplete(() => {
       this.scene.remove(this.sphere1)
-      this.sphere1.position.set(6,0,0);
+      this.sphere1.position.set(6,-2,2);
     });
-
-    var sphere2Target = {x:0, y: 2.5, z: 2};
-    this.sphere2Anim = new TWEEN.Tween(this.sphere2.position).to(sphere2Target, 700)
+    this.sphere1rotation = new TWEEN.Tween(this.sphere1.rotation).to({y:-1*Math.PI}, 700)
     .easing(TWEEN.Easing.Exponential.Out)
+    .onStop(()=>{
+      this.sphere1.rotation.set(0,0,0)
+    })
+    .onComplete(()=>{
+      this.sphere1.rotation.set(0,0,0)
+    })
+
+    var sphere2Target = {x:-6, y: -2, z: 2};
+    this.sphere2Anim = new TWEEN.Tween(this.sphere2.position).to(sphere2Target, 700)
+    .easing(TWEEN.Easing.Quadratic.InOut)
     .onStart(() => {
       this.start()
       this.scene.add(this.sphere2)
-    })
-    .onUpdate(()=>{
-      this.sphere2.rotation.y += 0.02
+      this.sphere2rotation.start()
     })
     .onStop(()=>{
       this.scene.remove(this.sphere2)
       this.sphere2.position.set(-6,2,2)
+      this.sphere2rotation.stop()
     })
     .onComplete(() => {
       this.scene.remove(this.sphere2)
       this.sphere2.position.set(-6,2,2)
     });
+    this.sphere2rotation = new TWEEN.Tween(this.sphere2.rotation).to({y:1*Math.PI}, 700)
+    .easing(TWEEN.Easing.Exponential.Out)
+    .onStop(()=>{
+      this.sphere2.rotation.set(0,0,0)
+    })
+    .onComplete(()=>{
+      this.sphere2.rotation.set(0,0,0)
+    })
 
     var targetPlane = {y:-1.5}
     var plane = this.plane
@@ -431,7 +445,7 @@ class Animations extends Component {
       this.dodecahedron.position.set(0,0,0)
     })
     this.dodecRotation = new TWEEN.Tween(this.dodecahedron.rotation)
-    .to({y: 1.5}, 1200)
+    .to({y: 0.5*Math.PI}, 1200)
     .easing(TWEEN.Easing.Exponential.Out)
     .onStop(()=>{
       this.dodecahedron.rotation.set(0,0,0)
@@ -459,7 +473,7 @@ class Animations extends Component {
     })
 
     this.octAnim = new TWEEN.Tween( this.octahedron.position )
-    .to({x:2,y:2}, 1000)
+    .to({x:4,y:2}, 1500)
     .easing(TWEEN.Easing.Quartic.InOut)
     .onStart(()=>{
       this.scene.add(this.octahedron)
@@ -469,11 +483,11 @@ class Animations extends Component {
     })
     .onStop(()=>{
       this.scene.remove( this.octahedron )
-      this.octahedron.position.set(-2, 2, 0)
+      this.octahedron.position.set(-4, 2, 0)
     })
     .onComplete(()=>{
       this.scene.remove( this.octahedron )
-      this.octahedron.position.set(-2, 2, 0)
+      this.octahedron.position.set(-4, 2, 0)
     })
 
     this.torusAnim = new TWEEN.Tween(this.torus.position)
@@ -495,14 +509,14 @@ class Animations extends Component {
       this.torus.rotation.set(0,0,0)
     })
     this.torusRotation = new TWEEN.Tween(this.torus.rotation)
-    .to({y:3}, 500)
+    .to({y:1*Math.PI}, 500)
     .easing(TWEEN.Easing.Quadratic.InOut)
     .onStop(()=>{
       this.torus.rotation.set(0,0,0)
     })
 
     this.tetraAnim = new TWEEN.Tween(this.tetra.position)
-    .to({x: -2}, 500)
+    .to({x: -5}, 500)
     .easing(TWEEN.Easing.Quadratic.InOut)
     .onStart(()=>{
       this.scene.add(this.tetra)
@@ -512,11 +526,11 @@ class Animations extends Component {
     })
     .onStop(()=>{
       this.scene.remove(this.tetra)
-      this.tetra.position.set(2,3,-1)
+      this.tetra.position.set(5,-3,-1)
     })
     .onComplete(()=>{
       this.scene.remove(this.tetra)
-      this.tetra.position.set(2,3,-1)
+      this.tetra.position.set(5,-3,-1)
     })
 
     this.circ2Anim = new TWEEN.Tween(this.circle2.position)
@@ -661,7 +675,7 @@ class Animations extends Component {
     })
 
     this.hexAnim = new TWEEN.Tween(this.hex.position)
-    .to({z:10}, 2200)
+    .to({z:10}, 1800)
     .easing(TWEEN.Easing.Quartic.InOut)
     .onStart(()=>{
       this.scene.add(this.hex)
@@ -676,8 +690,8 @@ class Animations extends Component {
     })
 
     this.growAnim = new TWEEN.Tween(this.grow.rotation)
-    .to({y:6}, 2500)
-    .easing(TWEEN.Easing.Quadratic.InOut)
+    .to({y:2*Math.PI}, 2500)
+    .easing(TWEEN.Easing.Circular.InOut)
     .onStart(()=>{
       this.scene.add(this.grow)
     })
@@ -760,7 +774,7 @@ class Animations extends Component {
       this.cylinder2.position.set(0,0,-10)
     })
 
-    this.octAnim = new TWEEN.Tween(this.oct.position)
+    this.oct2Anim = new TWEEN.Tween(this.oct.position)
     .to({z: -10}, 1000)
     .onStart(()=>{
       this.scene.add( this.oct )
@@ -777,12 +791,21 @@ class Animations extends Component {
       this.oct.position.set(0,0,10)
     })
 
-
-
-
-
-
-
+    this.kAnim = new TWEEN.Tween(this.tetra3.scale)
+    .to({x:0,y:0,z:0}, 500)
+    .easing(TWEEN.Easing.Exponential.Out)
+    .onStart(()=>{
+      this.tetra3.scale.set(5,5,5)
+      this.scene.add(this.tetra3)
+    })
+    .onStop(()=>{
+      this.scene.remove(this.tetra3)
+      this.tetra3.scale.set(5,5,5)
+    })
+    .onComplete(()=>{
+      this.scene.remove(this.tetra3)
+      this.tetra3.scale.set(5,5,5)
+    })
 
     this.start() // start three.js animation on mount
   };
@@ -892,9 +915,11 @@ class Animations extends Component {
       },
       'k': () => {
         this.sample.triggerRelease('E4')
-        this.scene.remove(this.cube);
-        this.scene.add(this.cube)
+        // this.scene.removeChild(this.particleSystem);
+        // this.scene.addChild(this.particleSystem)
+        this.kAnim.stop()
         this.start()
+        this.kAnim.start()
         this.sample.triggerAttack('E4')
 
       },
@@ -976,8 +1001,8 @@ class Animations extends Component {
       },
       'x': () => {
         this.sample.triggerRelease('D6');
-        this.octAnim.stop()
-        this.octAnim.start()
+        this.oct2Anim.stop()
+        this.oct2Anim.start()
         this.sample.triggerAttack('D6');
       },
       'y': () => {
