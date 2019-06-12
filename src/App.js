@@ -6,7 +6,7 @@ import {BrowserRouter, Switch, Route} from 'react-router-dom';
 function App() {
   return (
     <div className="App">
-      <BrowserRouter basename="/tritone-index">
+      <BrowserRouter basename="/tritone">
         <Switch>
           <Route exact path='/' component={Animations}></Route>
         </Switch>
@@ -14,8 +14,5 @@ function App() {
     </div>
   )
 }
-
-
-
 
 export default App;
