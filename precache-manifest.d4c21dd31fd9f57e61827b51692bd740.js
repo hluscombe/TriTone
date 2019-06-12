@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "f5972443682ea734d78fefff3db75c35",
+    "revision": "b27c6c2375708510f4e8879e47f95537",
     "url": "/TriTone/index.html"
   },
   {
-    "revision": "167232a9336cd78e567f",
+    "revision": "49baa6b3a4471218b174",
     "url": "/TriTone/static/css/main.b20d27f5.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/TriTone/static/js/2.48a47d71.chunk.js"
   },
   {
-    "revision": "167232a9336cd78e567f",
-    "url": "/TriTone/static/js/main.9bc79896.chunk.js"
+    "revision": "49baa6b3a4471218b174",
+    "url": "/TriTone/static/js/main.f1480bb1.chunk.js"
   },
   {
     "revision": "ba704ca2079ff3c491e9",

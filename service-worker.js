@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/TriTone/precache-manifest.2a00f7c36ae60c03de8140fa74f31a74.js"
+  "/TriTone/precache-manifest.d4c21dd31fd9f57e61827b51692bd740.js"
 );
 
 self.addEventListener('message', (event) => {
