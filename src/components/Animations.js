@@ -225,10 +225,11 @@ class Animations extends Component {
     // this.scene.add(this.oct)
 
     // object 26 for letter K
-    const tetra3Geometry = new THREE.TetrahedronBufferGeometry()
+    const tetra3Geometry = new THREE.CircleBufferGeometry(1.5, 63)
     const tetra3Material = new THREE.MeshBasicMaterial({color: 'white', wireframe: false})
     this.tetra3 = new THREE.Mesh(tetra3Geometry, tetra3Material);
     this.tetra3.scale.set(5,5,5)
+    // this.scene.add(this.tetra3)
 
     // let tetrax = Math.random() < 0.5 ? -Math.random()*10 : Math.random()*10;
     // let tetray = Math.random() < 0.5 ? -Math.random()*10 : Math.random()*10;
@@ -412,7 +413,7 @@ class Animations extends Component {
     })
 
     this.circAnim = new TWEEN.Tween(this.circle.position)
-    .to({z:10}, 2000)
+    .to({z:10}, 1800)
     .easing(TWEEN.Easing.Exponential.Out)
     .onStart(()=>{
       this.scene.add(this.circle)
