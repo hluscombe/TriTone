@@ -1,6 +1,7 @@
 # TriTone
 
-TriTone is an sample player with animations built with Three.js, Tone.js, Tween.js and React.
+TriTone is an sample player with 3D animations.
+It was built with Three.js, Tone.js, Tween.js and React.
 
 Users can press the A-Z keys on their keyboard to trigger sounds and visuals.
 
@@ -25,3 +26,12 @@ This kind of allows you to make an interactive music video depending on the sequ
 * 3D Objects animated using [Tween.js](https://github.com/tweenjs/tween.js)
 
 * Custom sounds designed by [Pendants](https://soundcloud.com/pendantsmusic)
+
+## Planned Features
+* Web MIDI API functionality (play TriTone with your midi controller)
+
+* Custom Shaders
+
+* New Sounds
+
+* New Animations
