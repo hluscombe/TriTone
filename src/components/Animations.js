@@ -849,12 +849,14 @@ class Animations extends Component {
       'a': () => {
         this.sample.triggerRelease('G6')
         this.cubeAnim.stop()
+        this.start()
         this.cubeAnim.start();
         this.sample.triggerAttack('G6')
       },
       'b': () => {
         this.sample.triggerRelease('C3');
         this.planeAnim.stop()
+        this.start()
         this.planeAnim.start();
         this.sample.triggerAttack('C3');
       },
@@ -862,6 +864,7 @@ class Animations extends Component {
         this.sample.triggerRelease('D3')
         // this.create('c', 'pink', {x:-6, y: 1, z: -2}, 1, 2, 0, 800);
         this.coneAnim.stop()
+        this.start()
         this.coneAnim.start()
         this.sample.triggerAttack('D3')
       },
@@ -869,6 +872,7 @@ class Animations extends Component {
         this.sample.triggerRelease('E3')
         // this.create('d', 'blue', {x:4, y: -1, z: -2}, 0, 0, -1, 600)
         this.circAnim.stop()
+        this.start()
         this.circAnim.start()
         this.sample.triggerAttack('E3')
       },
@@ -876,18 +880,21 @@ class Animations extends Component {
         this.sample.triggerRelease('F3')
         // this.create('e', 'yellow', {x:2, y: -3, z: 0}, 1, 2, 1, 400)
         this.icosaAnim.stop()
+        this.start()
         this.icosaAnim.start()
         this.sample.triggerAttack('F3')
       },
       'f': () => {
         this.sample.triggerRelease('G3')
         this.sphere2Anim.stop()
+        this.start()
         this.sphere2Anim.start()
         this.sample.triggerAttack('G3')
       },
       'g': () => {
         this.sample.triggerRelease('A3');
         this.tweenSphere.stop();
+        this.start()
         this.tweenSphere.start();
         this.sample.triggerAttack('A3');
       },
@@ -895,6 +902,7 @@ class Animations extends Component {
         this.sample.triggerRelease('B3')
         // this.create('h', 'orange', {x:2, y: -5, z: 2}, 0.4, 0.3, 2, 400)
         this.octAnim.stop()
+        this.start()
         this.octAnim.start()
         this.sample.triggerAttack('B3')
 
@@ -903,6 +911,7 @@ class Animations extends Component {
         this.sample.triggerRelease('C4')
         // this.create('i', 'aliceblue', {x:-2, y: -4, z: 7}, 0.8, 0.2, 0.1, 400)
         this.torusAnim.stop()
+        this.start()
         this.torusAnim.start()
         this.sample.triggerAttack('C4')
 
@@ -910,6 +919,7 @@ class Animations extends Component {
       'j': () => {
         this.sample.triggerRelease('D4')
         this.tetraAnim.stop()
+        this.start()
         this.tetraAnim.start()
         this.sample.triggerAttack('D4')
 
@@ -927,6 +937,7 @@ class Animations extends Component {
       'l': () => {
         this.sample.triggerRelease('F4')
         this.circ2Anim.stop()
+        this.start()
         this.circ2Anim.start()
         this.sample.triggerAttack('F4')
 
@@ -934,18 +945,21 @@ class Animations extends Component {
       'm': () => {
         this.sample.triggerRelease('G4')
         this.cube2Anim.stop()
+        this.start()
         this.cube2Anim.start()
         this.sample.triggerAttack('G4')
       },
       'n': () => {
         this.sample.triggerRelease('A4')
         this.cube3Anim.stop()
+        this.start()
         this.cube3Anim.start()
         this.sample.triggerAttack('A4')
       },
       'o': () => {
         this.sample.triggerRelease('B4')
         this.cube4Anim.stop()
+        this.start()
         this.cube4Anim.start()
         this.sample.triggerAttack('B4')
 
@@ -953,6 +967,7 @@ class Animations extends Component {
       'p': () => {
         this.sample.triggerRelease('C5')
         this.tetra2Anim.stop()
+        this.start()
         this.tetra2Anim.start()
         this.sample.triggerAttack('C5')
 
@@ -960,6 +975,7 @@ class Animations extends Component {
       'q': () => {
         this.sample.triggerRelease('D5')
         this.triAnim.stop()
+        this.start()
         this.triAnim.start()
         this.sample.triggerAttack('D5')
 
@@ -967,54 +983,63 @@ class Animations extends Component {
       'r': () => {
         this.sample.triggerRelease('E5')
         this.hexAnim.stop()
+        this.start()
         this.hexAnim.start()
         this.sample.triggerAttack('E5')
       },
       's': () => {
         this.sample.triggerRelease('F5')
         this.dodecAnim.stop()
+        this.start()
         this.dodecAnim.start()
         this.sample.triggerAttack('F5')
       },
       't': () => {
         this.sample.triggerRelease('G5')
         this.toyboxAnim.stop()
+        this.start()
         this.toyboxAnim.start()
         this.sample.triggerAttack('G5')
       },
       'u': () => {
         this.sample.triggerRelease('A5')
         this.growAnim.stop()
+        this.start()
         this.growAnim.start()
         this.sample.triggerAttack('A5')
       },
       'v': () => {
         this.sample.triggerRelease('B5')
         this.hatAnim.stop()
+        this.start()
         this.hatAnim.start()
         this.sample.triggerAttack('B5')
       },
       'w': () => {
         this.sample.triggerRelease('C6')
         this.cylAnim.stop()
+        this.start()
         this.cylAnim.start()
         this.sample.triggerAttack('C6')
       },
       'x': () => {
         this.sample.triggerRelease('D6');
         this.oct2Anim.stop()
+        this.start()
         this.oct2Anim.start()
         this.sample.triggerAttack('D6');
       },
       'y': () => {
         this.sample.triggerRelease('E6');
         this.ico2Anim.stop()
+        this.start()
         this.ico2Anim.start()
         this.sample.triggerAttack('E6');
       },
       'z': () => {
         this.sample.triggerRelease('F6');
         this.cylinder2Anim.stop()
+        this.start()
         this.cylinder2Anim.start()
         this.sample.triggerAttack('F6');
       }
