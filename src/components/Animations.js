@@ -18,7 +18,7 @@ class Animations extends Component {
     const height = window.innerHeight;
     // var center = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
     this.scene = new THREE.Scene()
-    this.scene.background = new THREE.Color('grey');
+    this.scene.background = new THREE.Color('#F5F5F5');
 
     this.camera = new THREE.PerspectiveCamera(
       75,
@@ -39,11 +39,12 @@ class Animations extends Component {
     this.light = new THREE.PointLight("#ffffff");
     this.light.castShadow = true;
     this.light.position.set(-20, 10, 10);
-    this.light.shadow.mapSize.width = 2048;
-    this.light.shadow.mapSize.height = 2048;
+    // this.light.shadow.mapSize.width = 2048;
+    // this.light.shadow.mapSize.height = 2048;
     this.scene.add(this.light)
 
     // this.light2 = new THREE.PointLight("#FF0800");
+    // this.light2 = new THREE.PointLight("#fff");
     // this.light2.castShadow = true;
     // this.light2.position.set(-10, 8, 5);
     // this.light2.shadow.mapSize.width = 2048;
@@ -278,7 +279,6 @@ class Animations extends Component {
         this.cubeRotation.start()
       })
       .onStop(()=>{
-        this.scene.remove(cube)
         this.cubeRotation.stop()
         cube.position.set(-2,2,-1)})
       .onComplete(() => {
@@ -303,7 +303,6 @@ class Animations extends Component {
       this.sphere1rotation.start()
     })
     .onStop(()=>{
-      this.scene.remove(this.sphere1)
       this.sphere1.position.set(6,-2,2)
       this.sphere1rotation.stop()
     })
@@ -329,7 +328,6 @@ class Animations extends Component {
       this.sphere2rotation.start()
     })
     .onStop(()=>{
-      this.scene.remove(this.sphere2)
       this.sphere2.position.set(-6,2,2)
       this.sphere2rotation.stop()
     })
@@ -356,7 +354,6 @@ class Animations extends Component {
       // maybe trigger smaller cubes in time?
     })
     .onStop(()=>{
-      this.scene.remove(this.plane)
       plane.rotation.set(0, 0, 0)})
     .onComplete(() => {
       this.scene.remove(this.plane)
@@ -375,7 +372,6 @@ class Animations extends Component {
       this.cone.rotation.y += 0.03
     })
     .onStop(()=>{
-      this.scene.remove(this.cone)
       this.coneRotation.stop()
       this.cone.position.set(0,2,-4)
     })
@@ -404,7 +400,6 @@ class Animations extends Component {
       this.cylinder.rotation.y += 0.01
     })
     .onStop(()=>{
-      this.scene.remove(this.cylinder)
       this.cylinder.position.set(-20, 3, -2)
     })
     .onComplete(()=>{
@@ -419,7 +414,6 @@ class Animations extends Component {
       this.scene.add(this.circle)
     })
     .onStop(()=>{
-      this.scene.remove(this.circle)
       this.circle.position.set(0,0,0)
     })
     .onComplete(()=>{
@@ -436,7 +430,6 @@ class Animations extends Component {
       this.dodecRotation.start()
     })
     .onStop(()=>{
-      this.scene.remove(this.dodecahedron)
       this.dodecRotation.stop()
       this.dodecahedron.position.set(0,0,0)
     })
@@ -465,7 +458,6 @@ class Animations extends Component {
       this.icosahedron.rotation.y += 0.02
     })
     .onStop(()=>{
-      this.scene.remove(this.icosahedron)
       this.icosahedron.position.set(0,5,2)
     })
     .onComplete(()=>{
@@ -483,7 +475,6 @@ class Animations extends Component {
       this.octahedron.rotation.x += 0.1
     })
     .onStop(()=>{
-      this.scene.remove( this.octahedron )
       this.octahedron.position.set(-4, 2, 0)
     })
     .onComplete(()=>{
@@ -500,7 +491,6 @@ class Animations extends Component {
       this.torusRotation.start()
     })
     .onStop(()=>{
-      this.scene.remove(this.torus)
       this.torusRotation.stop()
       this.torus.position.set(0,0,-20)
     })
@@ -526,7 +516,6 @@ class Animations extends Component {
       this.tetra.rotation.x += 0.1
     })
     .onStop(()=>{
-      this.scene.remove(this.tetra)
       this.tetra.position.set(5,-3,-1)
     })
     .onComplete(()=>{
@@ -542,7 +531,6 @@ class Animations extends Component {
       this.circScale.start()
     })
     .onStop(()=>{
-      this.scene.remove(this.circle2)
       this.circle2.position.set(-4, 4, 0)
       this.circScale.stop()
     })
@@ -567,7 +555,6 @@ class Animations extends Component {
       this.scene.add(this.cube2)
     })
     .onStop(()=>{
-      this.scene.remove(this.cube2)
       this.cube2.scale.set(1,1,1)
       let randomIntx = Math.random() < 0.5 ? -4 : 4;
       let randomInty = Math.random() < 0.5 ? -4 : 4;
@@ -585,14 +572,9 @@ class Animations extends Component {
     .to({x:1,y:1,z:1}, 200)
     .easing(TWEEN.Easing.Linear.None)
     .onStart(()=>{
-      let randomIntx = Math.random() < 0.5 ? -2.5 : 2.5;
-      let randomInty = Math.random() < 0.5 ? -2.5 : 2.5;
-      this.cube3.position.set(randomIntx, randomInty, 0)
-      this.start()
       this.scene.add(this.cube3)
     })
     .onStop(()=>{
-      this.scene.remove(this.cube3)
       this.cube3.scale.set(0.5,0.5,0.5)
       let randomIntx = Math.random() < 0.5 ? -2.5 : 2.5;
       let randomInty = Math.random() < 0.5 ? -2.5 : 2.5;
@@ -611,12 +593,8 @@ class Animations extends Component {
     .easing(TWEEN.Easing.Quadratic.Out)
     .onStart(()=>{
       this.scene.add(this.cube4)
-      let randomIntx = Math.random() < 0.5 ? 6 : -6;
-      let randomInty = Math.random() < 0.5 ? 6 : -6;
-      this.cube4.position.set(randomIntx, randomInty, 0)
     })
     .onStop(()=>{
-      this.scene.remove(this.cube4)
       let randomIntx = Math.random() < 0.5 ? 6 : -6;
       let randomInty = Math.random() < 0.5 ? 6 : -6;
       this.cube4.position.set(randomIntx, randomInty, 0)
@@ -634,11 +612,9 @@ class Animations extends Component {
     .to({x: 2, y:0, z:0}, 200)
     .easing(TWEEN.Easing.Quadratic.Out)
     .onStart(()=>{
-      this.tetra2.position.set(2, 2, 0)
       this.scene.add(this.tetra2)
     })
     .onStop(()=>{
-      this.scene.remove(this.tetra2)
       this.tetra2.position.set(2, 2, 0)
       this.tetra2Anim2.stop()
     })
@@ -650,7 +626,7 @@ class Animations extends Component {
     .easing(TWEEN.Easing.Quadratic.Out)
     .onStop(()=>{
       this.tetra2.position.set(2, 2, 0)
-      this.scene.remove(this.tetra2)
+      // this.tetra2Anim.start()
     })
     .onComplete(()=>{
       this.scene.remove(this.tetra2)
@@ -667,7 +643,6 @@ class Animations extends Component {
       this.tri.rotation.z += 0.01
     })
     .onStop(()=>{
-      this.scene.remove(this.tri)
       this.tri.position.set(0,0,0)
     })
     .onComplete(()=>{
@@ -682,7 +657,6 @@ class Animations extends Component {
       this.scene.add(this.hex)
     })
     .onStop(()=>{
-      this.scene.remove(this.hex)
       this.hex.position.set(0,0,0)
     })
     .onComplete(()=>{
@@ -697,7 +671,6 @@ class Animations extends Component {
       this.scene.add(this.grow)
     })
     .onStop(()=>{
-      this.scene.remove(this.grow)
       this.grow.rotation.set(0,0,0)
     })
     .onComplete(()=>{
@@ -715,7 +688,6 @@ class Animations extends Component {
       this.ico2.rotation.y += 0.02
     })
     .onStop(()=>{
-      this.scene.remove(this.ico2)
       this.ico2.position.set(0,-5,2)
     })
     .onComplete(()=>{
@@ -733,7 +705,6 @@ class Animations extends Component {
       this.toybox.rotation.y += 0.1
     })
     .onStop(()=>{
-      this.scene.remove(this.toybox)
       this.toybox.position.set(0,0,0)
     })
     .onComplete(()=>{
@@ -750,7 +721,6 @@ class Animations extends Component {
       this.hat.rotation.y += 0.05
     })
     .onStop(()=>{
-      this.scene.remove( this.hat )
       this.hat.position.set(0,0,0)
     })
     .onComplete(()=>{
@@ -767,7 +737,6 @@ class Animations extends Component {
       this.cylinder2.rotation.y += 0.02
     })
     .onStop(()=>{
-      this.scene.remove( this.cylinder2 )
       this.cylinder2.position.set(0,0,-10)
     })
     .onComplete(()=>{
@@ -784,7 +753,6 @@ class Animations extends Component {
       this.oct.rotation.z += 0.05
     })
     .onStop(()=>{
-      this.scene.remove( this.oct )
       this.oct.position.set(0,0,10)
     })
     .onComplete(()=>{
@@ -800,7 +768,6 @@ class Animations extends Component {
       this.scene.add(this.tetra3)
     })
     .onStop(()=>{
-      this.scene.remove(this.tetra3)
       this.tetra3.scale.set(5,5,5)
     })
     .onComplete(()=>{
@@ -967,6 +934,7 @@ class Animations extends Component {
       'p': () => {
         this.sample.triggerRelease('C5')
         this.tetra2Anim.stop()
+        this.tetra2Anim2.stop()
         this.start()
         this.tetra2Anim.start()
         this.sample.triggerAttack('C5')
