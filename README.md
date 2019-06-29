@@ -5,7 +5,7 @@ It was built with Three.js, Tone.js, Tween.js and React.
 
 Users can press the A-Z keys on their keyboard to trigger sounds and visuals.
 
-This kind of allows you to make an interactive music video depending on the sequence on keys you press.
+This kind of allows you to make an interactive music video depending on the sequence of keys you press.
 
 [Play TriTone here](https://hluscombe.github.io/TriTone/)
 
